@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 
 file = pd.read_csv(args.input_file)
-#info o zbiorze
+#Dataset info
 print(file.info())
 num_cols = file.select_dtypes(include=['int64','float64']).columns
 fig1= plt.figure(figsize=(12,6))
@@ -25,17 +25,17 @@ fig3= plt.figure(figsize=(12,6))
 sns.heatmap(file[num_cols].corr(),annot=True,cmap='coolwarm')
 fig3.savefig("feature correlation - heatmap.png")
 plt.show()
-# #Usunięcie duplikatów 
+# #Dropping the duplicates
 file = file.drop_duplicates()
-#Uzupełnianie wartości pustych
-file[num_cols] = file[num_cols].fillna(file[num_cols].mean()) #wypełnienie średnią NA dla kolumn numerycznych
-file = file.dropna()# Usunięcie pozostałych wierszy z brakami(kolumny nienumeryczne)
-num_cols = file.select_dtypes(include=['int64','float64']).columns #Ponowna selekcja kolumn numerycznych
-#Normalizacja min-max dla kolumn numerycznych + test min ! max
+#Handling missing values
+file[num_cols] = file[num_cols].fillna(file[num_cols].mean()) #Filing NA values in numerical columns with mean
+file = file.dropna()# Dropping the remaining NA values
+num_cols = file.select_dtypes(include=['int64','float64']).columns #Re-selection of numerical columns
+#Min-Max normalization for numerical columns + min ! max test
 for c in num_cols:
     if file[c].min() != file[c].max():
         file[c]= (file[c]-file[c].min())/(file[c].max()-file[c].min())
     else:
         continue
-file.to_csv(args.output_file)
+file.to_csv(args.output_file)#Saving cleaned file
 
