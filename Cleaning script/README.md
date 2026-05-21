@@ -13,8 +13,13 @@ This script cleans the California Housing dataset.
 ## Visualizations (before cleaning)
 
 ### Households vs. Housing Median Age
-![scatter](househols by housing median age - scatter.png)
+![scatter](households by housing median age - scatter.png)
 
+### Distribution of Total Rooms
+![histogram](total rooms - histogram.png)
+
+### Feature Correlation Heatmap
+![heatmap](feature correlation - heatmap.png)
 ## What it does
 - Removes duplicates
 - Fills missing values in numeric columns with mean
