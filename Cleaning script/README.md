@@ -10,7 +10,7 @@ This script cleans the California Housing dataset.
 - Saves cleaned data to a new file
 
 ## How to run
-python clean.py input.csv output.csv
+python script.py input.csv output.csv
 
 ## Results
 After cleaning, all numerical columns are in range [0,1].
