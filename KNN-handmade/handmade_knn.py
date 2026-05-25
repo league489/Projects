@@ -24,7 +24,7 @@ def euclidean_distance(point_p,point_q):
     sum_of_squares = 0
     if len(point_p) == len(point_q):
         for i in range(0,len(point_p)):
-            sum_of_squares = sum_of_squares + pow((point_q[i]-point_p[i]),2)
+            sum_of_squares += pow((point_q[i]-point_p[i]),2)
         e_dist = round(np.sqrt(sum_of_squares),2)
         return e_dist
     else:
