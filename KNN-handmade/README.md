@@ -14,7 +14,7 @@ kNN (K - Nearest Neighbours) is a supervised learning algorithm used for classif
 - *split_function(data,split_ratio)*:  
 Function that splits **data** dataset by **split_ratio** parameter. Function returns following splits: X_train, Y_train, X_test, Y_test.
 - *euclidean_distance(point_p,point_q)*:  
-Function that computates and return Euclidean distance metric for given **point_p** and **point_q** points. Function performs length equality check before computation, raising ValueError exception if the points feature numbers don't match.
+Function that computates and returns Euclidean distance metric for given **point_p** and **point_q** points. Function performs length equality check before computation, raising ValueError exception if the points feature numbers don't match.
 - *majority_vote(labels)*:  
 Function that counts **labels** values with *collections.Counter()*, returning first most common label.
 ## Main function
@@ -72,7 +72,7 @@ from sklearn.datasets import load_wine
 data = load_wine(as_frame=True).frame
 # Split
 x_tr, y_tr, x_ts, y_ts = split_function(data, split_ratio=0.8)
-#Make prediction for desired point , for second point of dataest
+#Make prediction for desired point , for example: second point of dataest
 X_ts_1 = x_ts.iloc[1]
 x_ts_1_actual_label = y_ts.iloc[1]
 x_ts_1_predicted_label = predict(x_tr,y_tr,X_ts_1,3)
