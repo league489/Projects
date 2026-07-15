@@ -36,4 +36,4 @@ python -m demo.py
 ```
 ## Example of classification
 
-![Classification example](classification_example.png)
+![Classification example](classification_example.PNG)
